@@ -1,33 +1,43 @@
+// Direitos Autorais, PUCRS/Escola Politécnica
+// Início: 2021-06-15
+// https://github.com/GustavoPucRS/Avaliacao4-Ludo
+
+import java.util.Scanner;
 
 /**
- * Escreva a descrição da classe MainApp aqui.
+ * A classe MainApp possui o desenvolvimento e o método main(), 
+ * permitindo uma partida entre quatro jogadores.
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author Gustavo 
+ * @version 1.0 (15/06/2021)
  */
 public class MainApp
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * COnstrutor para objetos da classe MainApp
-     */
-    public MainApp()
+    public static void main(String[] args)
     {
-        // inicializa variáveis de instância
-        x = 0;
-    }
-
-    /**
-     * Exemplo de método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   exemplo de um parâmetro de método
-     * @return     a soma de x com y 
-     */
-    public int sampleMethod(int y)
-    {
-        // ponha seu código aqui
-        return x + y;
+        int i;
+        int j;
+        
+        Scanner entrada;
+        
+        entrada = new Scanner(System.in);
+        
+        String[][] tabuleiro = new String[13][13];
+        for(i = 0; i < 13; i = i + 1)
+        {
+            for(j = 0; j < 13; j = j + 1)
+            {
+                tabuleiro[i][j] = " ";
+            }
+        }
+        for(i = 0; i < 13; i = i + 1)
+        {
+            System.out.print("|");
+            for(j = 0; j < 13; j = j + 1)
+            {
+                System.out.print(tabuleiro[i][j]);
+            }
+            System.out.println("|");
+        }
     }
 }
