@@ -124,6 +124,7 @@ public class MainApp
         String[][] board;
         String player;
         int jogada;
+        int rodada;
         int coluna;
         int[] movLinha;
         int v;
@@ -137,6 +138,7 @@ public class MainApp
         player = "1";
         v = 0;
         movReal = 0;
+        rodada = 0;
         movLinha = new int[16];
         System.out.printf("Jogo de tabuleiro Ludo!\n\n");
         while (!fimDeJogo(board))
@@ -150,7 +152,9 @@ public class MainApp
                 System.out.print("\tValor inválido. Digite novamente: ");
                 jogada = entrada.nextInt();
             }
-            dado = Auxiliar.movDado(jogada);
+            rodada = Auxiliar.round(rodada);
+            System.out.printf("Rodada: %d\n",rodada);
+            dado = jogada + (int)(Math.random() *(6));
             System.out.printf("O valor do dado é: %d\n",dado);
             System.out.print("Escolha a coluna que a peça vai mover (1,2,3,4): ");
             coluna = entrada.nextInt();

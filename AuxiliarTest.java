@@ -5,11 +5,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+// Direitos Autorais, PUCRS/Escola Politécnica
+// Início: 2021-06-22
+// https://github.com/GustavoPucRS/Avaliacao4-Ludo
+
 /**
- * A classe de teste AuxiliarTest.
- *
- * @author  (seu nome)
- * @version (um número de versão ou data)
+ * A classe Auxiliar possue um subprograma que 
+ * permite calcular a soma da linha com o dado.
+ * 
+ * @author Gustavo da Nóbrega Silva (21100654-9)
+ * @version 1.0 (22/06/2021)
  */
 public class AuxiliarTest
 {
@@ -39,4 +44,31 @@ public class AuxiliarTest
     public void tearDown()
     {
     }
+
+    @Test
+    public void rodada10igual11()
+    {
+        assertEquals(11, Auxiliar.round(10));
+    }
+
+    @Test
+    public void rodada40igual41()
+    {
+        assertEquals(41, Auxiliar.round(40));
+    }
+    
+    @Test
+    public void rodada6igual7()
+    {
+        assertEquals(7, Auxiliar.round(6));
+    }
+    
+    @Test
+    public void rodada21igua22()
+    {
+        assertEquals(22, Auxiliar.round(21));
+    }
 }
+
+
+

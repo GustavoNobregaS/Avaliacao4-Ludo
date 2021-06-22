@@ -13,10 +13,9 @@ import java.util.Scanner;
  */
 public class Auxiliar
 {
-    public static int movDado(int jogada)
+    public static int round(int rodada)
     {
-        int n;
-        n = jogada + (int)(Math.random() *(6));
-        return n;
+        rodada = rodada + 1;
+        return rodada;
     }
 }
