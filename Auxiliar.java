@@ -1,33 +1,23 @@
+// Direitos Autorais, PUCRS/Escola Politécnica
+// Início: 2021-06-22
+// https://github.com/GustavoPucRS/Avaliacao4-Ludo
+
+import java.util.Scanner;
 
 /**
- * Escreva a descrição da classe Auxiliar aqui.
+ * A classe Auxiliar possue um subprograma que 
+ * permite calcular a soma da linha com o dado.
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author Gustavo da Nóbrega Silva (21100654-9)
+ * @version 1.0 (22/06/2021)
  */
 public class Auxiliar
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * COnstrutor para objetos da classe Auxiliar
-     */
-    public Auxiliar()
+    public static int somarLinha(int[] movLinha,int movReal, int dado)
     {
-        // inicializa variáveis de instância
-        x = 0;
-    }
-
-    /**
-     * Exemplo de método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   exemplo de um parâmetro de método
-     * @return     a soma de x com y 
-     */
-    public int sampleMethod(int y)
-    {
-        // ponha seu código aqui
-        return x + y;
+        int soma;
+        soma = movLinha[movReal];
+        soma = soma + dado;
+        return soma;
     }
 }
