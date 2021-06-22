@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class MainApp
 {
     /**
-     * Cria uma matriz 20x25, preenchida com espaços. 
+     * Cria uma matriz 25x25, preenchida com espaços. 
      * 
      * @return a matriz criada
      */
@@ -91,14 +91,11 @@ public class MainApp
     
     public static boolean fimDeJogo(String[][] board)
     {        
-        return vitoria(board,"1") || vitoria(board,"2")
-        || vitoria(board,"3") || vitoria(board,"4");
+        return vitoria(board);
     }
     
-    public static boolean vitoria(String[][] board, String player)
+    public static boolean vitoria(String[][] board)
     {
-        int i;
-        int j;
         if ((board[24][0].equals("1")) && (board[24][1].equals("2"))
         && (board[24][2].equals("3")) && (board[24][3].equals("4")))
         {
@@ -131,8 +128,7 @@ public class MainApp
         int[] movLinha;
         int v;
         int movReal;
-        int min = 1;
-        int max = 6;
+        int colunaReal;
         int dado;
         Scanner entrada;
         
@@ -154,23 +150,24 @@ public class MainApp
                 System.out.print("\tValor inválido. Digite novamente: ");
                 jogada = entrada.nextInt();
             }
-            dado = (int)Math.floor(Math.random()*(max - min + 1) + min);
+            dado = Auxiliar.movDado(jogada);
             System.out.printf("O valor do dado é: %d\n",dado);
+            System.out.print("Escolha a coluna que a peça vai mover (1,2,3,4): ");
+            coluna = entrada.nextInt();
+            while (coluna < 1 || coluna > 4)
+            {
+                System.out.print("\tValor inválido. Digite novamente: ");
+                coluna = entrada.nextInt();
+            }
             if (player.equals("1"))
             {
-                System.out.print("Escolha a coluna que a peça vai mover (0,1,2,3): ");
-                coluna = entrada.nextInt();
-                while (coluna < 0 || coluna > 3)
+                if (movLinha[coluna -1] + dado < 25)
                 {
-                    System.out.print("\tValor inválido. Digite novamente: ");
-                    coluna = entrada.nextInt();
-                }
-                movReal = coluna;
-                if (movLinha[coluna] + dado < 25)
-                {
-                    board [movLinha[movReal]][coluna] = " ";
+                    movReal = coluna - 1;
+                    colunaReal = coluna -1;
+                    board [movLinha[movReal]][colunaReal] = " ";
                     movLinha[movReal] = movLinha[movReal] + dado;
-                    board [movLinha[movReal]][coluna] = String.valueOf(coluna + 1);
+                    board [movLinha[movReal]][colunaReal] = String.valueOf(coluna);
                 }
                 else
                 {
@@ -180,19 +177,13 @@ public class MainApp
             }
             if (player.equals("2"))
             {
-                System.out.print("Escolha a coluna que a peça vai mover (7,8,9,10): ");
-                coluna = entrada.nextInt();
-                while (coluna < 7 || coluna > 10)
+                if (movLinha[coluna + 3] + dado < 25)
                 {
-                    System.out.print("\tValor inválido. Digite novamente: ");
-                    coluna = entrada.nextInt();
-                }
-                movReal = coluna - 3;
-                if (movLinha[movReal] + dado < 25)
-                {
-                    board [movLinha[movReal]][coluna] = " ";
+                    movReal = coluna + 3;
+                    colunaReal = coluna + 6;
+                    board [movLinha[movReal]][colunaReal] = " ";
                     movLinha[movReal] = movLinha[movReal] + dado;
-                    board [movLinha[movReal]][coluna] = String.valueOf(coluna - 6);
+                    board [movLinha[movReal]][colunaReal] = String.valueOf(coluna);
                 }
                 else
                 {
@@ -202,19 +193,13 @@ public class MainApp
             }
             if (player.equals("3"))
             {
-                System.out.print("Escolha a coluna que a peça vai mover (14,15,16,17): ");
-                coluna = entrada.nextInt();
-                while (coluna < 14 || coluna > 17)
+                if (movLinha[coluna + 7] + dado < 25)
                 {
-                    System.out.print("\tValor inválido. Digite novamente: ");
-                    coluna = entrada.nextInt();
-                }
-                movReal = coluna - 6;
-                if (movLinha[movReal] + dado < 25)
-                {
-                    board [movLinha[movReal]][coluna] = " ";
+                    movReal = coluna + 7;
+                    colunaReal = coluna + 13;
+                    board [movLinha[movReal]][colunaReal] = " ";
                     movLinha[movReal] = movLinha[movReal] + dado;
-                    board [movLinha[movReal]][coluna] = String.valueOf(coluna - 13);
+                    board [movLinha[movReal]][colunaReal] = String.valueOf(coluna);
                 }
                 else
                 {
@@ -224,19 +209,13 @@ public class MainApp
             }
             if (player.equals("4"))
             {
-                System.out.print("Escolha a coluna que a peça vai mover (21,22,23,24): ");
-                coluna = entrada.nextInt();
-                while (coluna < 21 || coluna > 24)
+                if (movLinha[coluna + 11] + dado < 25)
                 {
-                    System.out.print("\tValor inválido. Digite novamente: ");
-                    coluna = entrada.nextInt();
-                }
-                movReal = coluna - 9;
-                if (movLinha[movReal] + dado < 25)
-                {
-                    board [movLinha[movReal]][coluna] = " ";
+                    movReal = coluna + 11;
+                    colunaReal = coluna + 20;
+                    board [movLinha[movReal]][colunaReal] = " ";
                     movLinha[movReal] = movLinha[movReal] + dado;
-                    board [movLinha[movReal]][coluna] = String.valueOf(coluna - 20);
+                    board [movLinha[movReal]][colunaReal] = String.valueOf(coluna);
                 }
                 else
                 {

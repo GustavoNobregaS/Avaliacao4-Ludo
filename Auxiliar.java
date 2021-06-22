@@ -13,11 +13,10 @@ import java.util.Scanner;
  */
 public class Auxiliar
 {
-    public static int somarLinha(int[] movLinha,int movReal, int dado)
+    public static int movDado(int jogada)
     {
-        int soma;
-        soma = movLinha[movReal];
-        soma = soma + dado;
-        return soma;
+        int n;
+        n = jogada + (int)(Math.random() *(6));
+        return n;
     }
 }
